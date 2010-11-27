@@ -1,0 +1,36 @@
+
+<p  class="pageheading">Listing application_languages</p>
+<%= will_paginate %>
+
+<table class="data">
+  <tr class="dataheader">
+    <th class ="dataheader">Iso code</th>
+    <th class="linkheader"></th>
+    <th class="linkheader"></th>
+    
+  </tr>
+<% row_class="" %>
+<% row_counter =0 %>  
+<% cell_class = "datatcell" %>
+<% link_cell_class="link"%>  
+<% @application_languages.each do |application_language| %>
+<% if row_counter%2==0: %>
+  <%  row_class="dataeven" %>
+<% else %>
+  <% row_class ="dataodd"  %>
+<% end %>
+  <tr class = "<%= row_class %>" >
+    <td class="<%= cell_class %>"><%= application_language.iso_code %></td>
+		 
+    
+    <td class="<%= link_cell_class %>"><%= link_to 'Edit', edit_application_language_path(application_language) %></td>
+    <tdclass="<%= link_cell_class %>"><%= link_to 'Destroy', application_language, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% row_counter += 1 %>  	
+<% end %>
+</table>
+<%= will_paginate %>
+
+<br />
+
+<%= link_to 'New Application language', new_application_language_path %>

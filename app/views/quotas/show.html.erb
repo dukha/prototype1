@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @quota.name %>
+</p>
+
+<p>
+  <b>Initial quota:</b>
+  <%= @quota.initial_quota %>
+</p>
+
+<p>
+  <b>Quota:</b>
+  <%= @quota.quota %>
+</p>
+
+<p>
+  <b>Days from start init to real:</b>
+  <%= @quota.days_from_start_init_to_real %>
+</p>
+
+
+<%= link_to 'Edit', edit_quota_path(@quota) %> |
+<%= link_to 'Back', quotas_path %>

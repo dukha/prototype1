@@ -1,0 +1,21 @@
+<p class="pageheading"><%=t("headings.editing.heading", :model=>t("entities.user") )%></p>
+
+<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+    
+  <% f.inputs do %>
+    <%= f.input :email, :hint %>
+    <%= f.input :password,  :as=> :password, :hint=>t($FH+"user.passwordedit") %>
+    <%= f.input :password_confirmation, :as=> :password, :hint=>t($FH+"user.passwordedit") %>
+    <%= f.input :username, :hint%>
+    <%= f.input :language_id, :as => :select , :collection=> Language.find(:all)  %>
+  <% end %>
+  <%= f.buttons do %>
+      <%= f.commit_button :submit %>    
+  <% end %>
+<% end %>
+
+
+<p><%= t("links.unhappy")%> <%= link_to t("links.cancel_registration"), registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+

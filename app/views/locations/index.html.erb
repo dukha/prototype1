@@ -1,0 +1,39 @@
+
+<p class="pageheading"><%=t("headings.listing.heading", :model=>t("entities.locations") )%></p>
+<%= will_paginate %>
+
+<table class="data">
+  <tr class="dataheader">
+    <th class ="dataheader"><%=t($FL+"old_code")%></th>
+    <th class ="dataheader"><%=t($FL+"name")%></th>
+    <th class="linkheader"></th>
+    <th class="linkheader"></th>
+    
+  </tr>
+<% row_class="" %>
+<% row_counter =0 %>  
+<% cell_class = "data" %>
+<% link_cell_class="link"%>  
+<% @locations.each do |location| %>
+<% if row_counter%2==0: %>
+  <%  row_class="dataeven" %>
+<% else %>
+  <% row_class ="dataodd"  %>
+<% end %>
+  <tr class = "<%= row_class %>" >
+    <td class="<%= cell_class %>"><%= location.old_code %></td>
+		 
+    <td class="<%= cell_class %>"><%= location.name %></td>
+		 
+    
+    <td class="link_cell_class"><%= link_to t('action.edit'), edit_location_path(location) %></td>
+    <td class="link_cell_class"><%= link_to t('action.destroy'), location, :confirm => t('messages.delete.are_you_sure', :model => t('entities.whiteboard_type')), :method => :delete %></td>
+  </tr>
+<% row_counter += 1 %>  	
+<% end %>
+</table>
+<%= will_paginate %>
+
+<br />
+
+<%= link_to t('headings.new.heading', :model=> t('entities.location')), new_location_path %>

@@ -1,0 +1,16 @@
+<%= semantic_form_for(@quota) do |f| %>
+  <%= f.error_messages %> 
+   <!-- <%= f.semantic_errors :state %>  -->
+
+	 <% f.inputs do %>  
+		   <%= f.input :name  %>   
+		   <%= f.input :initial_quota  %> 
+		   <%= f.input :quota  %>   
+		   <!-- %= f.input :days_from_start_init_to_real  %  --> 
+	<% end %>
+	<%= f.buttons do %>
+      <%= f.commit_button  %>    
+  <% end %>
+	
+	<% end %>
+

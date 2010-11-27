@@ -1,0 +1,14 @@
+<%= semantic_form_for(@course_type) do |f| %>
+  <%= f.error_messages %> 
+  <% f.inputs do %>
+    <%= f.input :oldcode %>
+     <%= f.input :translation_code %>
+     <%= f.input :name %>
+		 <%= f.input :description %>
+		 <%= f.input :last_day %>
+		 
+	<% end %>	  
+  <%= f.buttons do %>
+      <%= f.commit_button  %>    
+  <% end %>
+<% end %>

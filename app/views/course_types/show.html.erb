@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Oldcode:</b>
+  <%= @course_type.oldcode %>
+</p>
+
+<p>
+  <b>Translation code:</b>
+  <%= @course_type.translation_code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @course_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @course_type.description %>
+</p>
+
+<p>
+  <b>Last day:</b>
+  <%= @course_type.last_day %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_type_path(@course_type) %> |
+<%= link_to 'Back', course_types_path %>

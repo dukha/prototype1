@@ -1,0 +1,40 @@
+
+<p class="pageheading"><%=t("headings.listing.heading", :model=>t("entities.course_types") )%></p>
+<%= will_paginate %>
+<table class="data">
+  <tr class="dataheader">
+    <!--th class ="dataheader">Oldcode</th -->
+    <th class ="dataheader"><%=t($FL+"translation_code")%></th>
+    <th class ="dataheader"><%=t($FL+"name")%></th>
+    <th class ="dataheader"><%=t($FL+"description")%></th>
+    <!--th class ="dataheader">Last day</th  -->
+    <th class="linkheader"></th>
+    <th class="linkheader"></th>
+    
+  </tr>
+<% row_class="" %>
+<% row_counter =0 %>  
+<% cell_class = "data" %>
+<% link_cell_class="link"%>
+<% @course_types.each do |course_type| %>
+<% if row_counter%2==0: %>
+  <%  row_class="dataeven" %>
+<% else %>
+  <% row_class ="dataodd"  %>
+<% end %>
+  <tr class = "<%= row_class %>" >
+    <!--td class="<%= cell_class %>"> <%=course_type.oldcode %></td  -->
+    <td class="<%= cell_class %>"><%= course_type.translation_code %></td>
+    <td class="<%= cell_class %>"><%= course_type.name %></td>
+    <td class="<%= cell_class %>"><%= course_type.description %></td>
+    <!-- td class="<%= cell_class %>"><%= course_type.last_day %></td  -->
+    <td class="<%= link_cell_class %>"><%= link_to t('action.edit'), edit_course_type_path(course_type) %></td>
+    <td class="<%= link_cell_class %>"><%= link_to t('action.destroy'), course_type, :confirm => t('messages.delete.are_you_sure', :model => t('entities.course_type')), :method => :delete %></td>
+  </tr>
+<% row_counter += 1 %>	
+<% end %>
+</table>
+<%= will_paginate %>
+<br />
+
+<%= link_to t('headings.new.heading', :model=> t('entities.course_type')), new_course_type_path %>
