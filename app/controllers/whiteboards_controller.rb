@@ -2,6 +2,7 @@ class WhiteboardsController < ApplicationController
   # GET /whiteboards
   # GET /whiteboards.xml
   before_filter :authenticate_user!
+  @@model = "whiteboards"
   def index
     #logger.info("current_user " +current_user.email)
     #lang_id = current_user.language_id
@@ -51,7 +52,7 @@ class WhiteboardsController < ApplicationController
 
     respond_to do |format|
       if @whiteboard.save
-        format.html { redirect_to(:action=>”index, :notice => 'Whiteboard was successfully created.') }
+        format.html { redirect_to(:action=>"index", :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @whiteboard, :status => :created, :location => @whiteboard }
       else
         format.html { render :action => "new" }
@@ -67,7 +68,7 @@ class WhiteboardsController < ApplicationController
 
     respond_to do |format|
       if @whiteboard.update_attributes(params[:whiteboard])
-        format.html { redirect_to(:action=>”index, :notice => 'Whiteboard was successfully updated.') }
+        format.html { redirect_to(:action=>"index", :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

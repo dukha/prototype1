@@ -36,6 +36,11 @@ en:
   messages:
     delete:
       are_you_sure: Deleting %{model}. Are you sure?
+      success: %{model} was successfully deleted.
+    create:
+      success: %{model} was successfully created.
+    update:
+      success: %{model} was successfully updated. 
   activerecord:
     #sign_up: Sign up
     sign_in: Sign in
@@ -64,15 +69,19 @@ en:
     location: Location
     locations: Locations
     quota: Quota
-    quotas: quotas
-    white_board_type: Whiteboard Type
-    white_board_types: Whiteboard Types
+    quotas: Quotas
+    quota_schema: Quota Schema
+    quota_schemas: Quota Schemas
+    whiteboard_type: Whiteboard Type
+    whiteboard_types: Whiteboard Types
     language: Language
     languages: Languages
     course: Course 
     courses: Courses
     user: User
-    users: Users  
+    users: Users 
+    whiteboard_type: Whiteboard Type
+    whiteboard_types: Whiteboard Types 
     whiteboard: Whiteboard
     whiteboards: Whiteboards
   menus:
@@ -86,6 +95,7 @@ en:
     whiteboard_types: Whiteboard Types
     locations: Locations
     quotas: Quotas
+    quota_schemas: Quota Schemas
     user_info: User Information
     home: Home
     contact: Contact Calm

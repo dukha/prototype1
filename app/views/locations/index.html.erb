@@ -1,5 +1,5 @@
-
 <p class="pageheading"><%=t("headings.listing.heading", :model=>t("entities.locations") )%></p>
+<p id="notice"><%= notice %></p>
 <%= will_paginate %>
 
 <table class="data">
@@ -27,7 +27,7 @@
 		 
     
     <td class="link_cell_class"><%= link_to t('action.edit'), edit_location_path(location) %></td>
-    <td class="link_cell_class"><%= link_to t('action.destroy'), location, :confirm => t('messages.delete.are_you_sure', :model => t('entities.whiteboard_type')), :method => :delete %></td>
+    <td class="link_cell_class"><%= link_to t('action.destroy'), location, :confirm => t('messages.delete.are_you_sure', :model => t('entities.location')), :method => :delete %></td>
   </tr>
 <% row_counter += 1 %>  	
 <% end %>

@@ -1,0 +1,33 @@
+<%= semantic_form_for(@course) do |f| %>
+  <%= f.error_messages %> 
+  
+	<% f.inputs do %>
+				   <%= f.input :course_type_id  %>   
+				   <%= f.input :begin_date  %>   
+				   <%= f.input :end_date  %>   
+				   <%= f.input :location_id  %>   
+				   <%= f.input :active_status_id  %>   
+				   <%= f.input :old_students_only  %>   
+				   <%= f.input :course_type_id  %>   
+				   <%= f.input :start_time  %>   
+				   <%= f.input :end_time  %>   
+				   <%= f.input :assistant_teacher_id  %>   
+				   <%= f.input :assistant_teacher_special_cases_id  %>   
+				   <%= f.input :assistant_teacher_email  %>   
+				   <%= f.input :male_quota_status_id  %>   
+				   <%= f.input :female_quota_status_id  %>   
+				   <%= f.input :reconfirmation_days  %>   
+				   <%= f.input :quota_from_initial_to_actual_days  %>   
+				   <%= f.input :registrar_email  %>   
+				   <%= f.input :welcome_letter_sent  %>   
+				   <%= f.input :exported_to_os_database  %>   
+				   <%= f.input :no_applications_before  %>   
+				   <%= f.input :quota_schema  %>   
+		
+	<% end %>	
+	<%= f.buttons do %>
+      <%= f.commit_button  %>    
+  <% end %>
+	
+	<% end %>
+

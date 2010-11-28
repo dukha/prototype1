@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   before_filter :authenticate_user!
+  @@model ="location"
   def index
     @locations = Location.paginate(:page => params[:page], :per_page=>15)
 
@@ -45,7 +46,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to(:action=>”index, :notice => 'Location was successfully created.') }
+        format.html { redirect_to(:action=>"index", :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
       else
         format.html { render :action => "new" }
@@ -61,7 +62,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.update_attributes(params[:location])
-        format.html { redirect_to(:action=>”index, :notice => 'Location was successfully updated.') }
+        format.html { redirect_to(:action=>'index', :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

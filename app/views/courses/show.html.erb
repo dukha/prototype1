@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course type:</b>
+  <%= @course.course_type_id %>
+</p>
+
+<p>
+  <b>Begin date:</b>
+  <%= @course.begin_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @course.end_date %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @course.location_id %>
+</p>
+
+<p>
+  <b>Active status:</b>
+  <%= @course.active_status_id %>
+</p>
+
+<p>
+  <b>Old students only:</b>
+  <%= @course.old_students_only %>
+</p>
+
+<p>
+  <b>Course type:</b>
+  <%= @course.course_type_id %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @course.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @course.end_time %>
+</p>
+
+<p>
+  <b>Assistant teacher:</b>
+  <%= @course.assistant_teacher_id %>
+</p>
+
+<p>
+  <b>Assistant teacher special cases:</b>
+  <%= @course.assistant_teacher_special_cases_id %>
+</p>
+
+<p>
+  <b>Assistant teacher email:</b>
+  <%= @course.assistant_teacher_email %>
+</p>
+
+<p>
+  <b>Male quota status:</b>
+  <%= @course.male_quota_status_id %>
+</p>
+
+<p>
+  <b>Female quota status:</b>
+  <%= @course.female_quota_status_id %>
+</p>
+
+<p>
+  <b>Reconfirmation days:</b>
+  <%= @course.reconfirmation_days %>
+</p>
+
+<p>
+  <b>Quota from initial to actual days:</b>
+  <%= @course.quota_from_initial_to_actual_days %>
+</p>
+
+<p>
+  <b>Registrar email:</b>
+  <%= @course.registrar_email %>
+</p>
+
+<p>
+  <b>Welcome letter sent:</b>
+  <%= @course.welcome_letter_sent %>
+</p>
+
+<p>
+  <b>Exported to os database:</b>
+  <%= @course.exported_to_os_database %>
+</p>
+
+<p>
+  <b>No applications before:</b>
+  <%= @course.no_applications_before %>
+</p>
+
+<p>
+  <b>Quota schema:</b>
+  <%= @course.quota_schema %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

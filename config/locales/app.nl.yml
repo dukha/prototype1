@@ -22,6 +22,11 @@ nl:
   messages:
     delete:
       are_you_sure: Verwijder %{model}. Weet u zeker?
+      success: %{model} verwijderd.
+    create:
+      success: %{model} gecreerd.
+    update:
+      success: %{model} verwerkte. 
   activerecord:
     #sign_up: Sign up
     sign_in: Inloggen
@@ -51,6 +56,8 @@ nl:
     locations: Locaties
     quota:  Evenredig deel
     quotas: Evenredig delen
+    quota_schema: Evenredig deel Schema
+    quota_schemas: Evenredig deel Schemas
     whiteboard_type: Soort whiteboard
     whiteboard_types: Soorten whiteboard
     language: Taal
@@ -72,6 +79,7 @@ nl:
     whiteboard_types: Soorten Whiteboards 
     locations: Locaties
     quotas: Evenredig delen
+    quota_schemas: Evenredig deel schemas
     user_info: Gebruiker informatie
     home: Startpagina
     contact: Contact Calm

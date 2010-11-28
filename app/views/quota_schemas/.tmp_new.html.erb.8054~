@@ -1,0 +1,7 @@
+<p class="pageheading"><%= t(headings.new.heading")%> quota_schema</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', quota_schemas_path %>
+<%= link_to t('headings.new.heading', :model=> t('entities.quota_schema')), new_quota_schema_path %> |
+<%= link_to t("action.back"), quota_schema_path %>

@@ -2,6 +2,7 @@ class QuotasController < ApplicationController
   # GET /quotas
   # GET /quotas.xml
   before_filter :authenticate_user!
+  @@model ="quota"
   def index
     #@quotas = Quota.all
     @quotas =  Quota.paginate(:page => params[:page], :per_page=>15)  
@@ -45,7 +46,7 @@ class QuotasController < ApplicationController
 
     respond_to do |format|
       if @quota.save
-        format.html { redirect_to(:action=> "index", :notice => 'Quota was successfully created.') }
+        format.html { redirect_to(:action=> "index", :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @quota, :status => :created, :location => @quota }
       else
         format.html { render :action => "new" }
@@ -61,7 +62,7 @@ class QuotasController < ApplicationController
 
     respond_to do |format|
       if @quota.update_attributes(params[:quota])
-        format.html { redirect_to(:action=> "index", :notice => 'Quota was successfully updated.') }
+        format.html { redirect_to(:action=> "index", :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

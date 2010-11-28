@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101124222230) do
+ActiveRecord::Schema.define(:version => 20101128040638) do
 
   create_table "application_languages", :force => true do |t|
     t.string   "iso_code"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(:version => 20101124222230) do
 
   create_table "locations", :force => true do |t|
     t.string   "old_code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quota_schemas", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

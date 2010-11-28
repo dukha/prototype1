@@ -1,0 +1,138 @@
+<p class="pageheading"><%=t("headings.listing.heading", :model=>t("entities.courses") )%></p>
+<p id="notice"><%= notice %></p>
+<%= will_paginate %>
+<table class="data">
+  <tr class="dataheader">
+
+    <th class ="dataheader"><%=t($FL+'course_type_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'begin_date') %></th>
+
+    <th class ="dataheader"><%=t($FL+'end_date') %></th>
+
+    <th class ="dataheader"><%=t($FL+'location_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'active_status_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'old_students_only') %></th>
+
+    <th class ="dataheader"><%=t($FL+'course_type_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'start_time') %></th>
+
+    <th class ="dataheader"><%=t($FL+'end_time') %></th>
+
+    <th class ="dataheader"><%=t($FL+'assistant_teacher_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'assistant_teacher_special_cases_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'assistant_teacher_email') %></th>
+
+    <th class ="dataheader"><%=t($FL+'male_quota_status_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'female_quota_status_id') %></th>
+
+    <th class ="dataheader"><%=t($FL+'reconfirmation_days') %></th>
+
+    <th class ="dataheader"><%=t($FL+'quota_from_initial_to_actual_days') %></th>
+
+    <th class ="dataheader"><%=t($FL+'registrar_email') %></th>
+
+    <th class ="dataheader"><%=t($FL+'welcome_letter_sent') %></th>
+
+    <th class ="dataheader"><%=t($FL+'exported_to_os_database') %></th>
+
+    <th class ="dataheader"><%=t($FL+'no_applications_before') %></th>
+
+    <th class ="dataheader"><%=t($FL+'quota_schema') %></th>
+
+    <th class="linkheader"></th>
+    <th class="linkheader"></th>
+    
+  </tr>
+<% row_class="" %>
+<% row_counter =0 %>  
+<% cell_class = "data" %>
+<% link_cell_class="link"%>  
+<% @courses.each do |course| %>
+<% if row_counter%2==0: %>
+  <%  row_class="dataeven" %>
+<% else %>
+  <% row_class ="dataodd"  %>
+<% end %>
+  <tr class = "<%= row_class %>" >
+
+    <td class="<%= cell_class %>"><%= course.course_type_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.begin_date %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.end_date %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.location_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.active_status_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.old_students_only %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.course_type_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.start_time %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.end_time %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.assistant_teacher_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.assistant_teacher_special_cases_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.assistant_teacher_email %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.male_quota_status_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.female_quota_status_id %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.reconfirmation_days %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.quota_from_initial_to_actual_days %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.registrar_email %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.welcome_letter_sent %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.exported_to_os_database %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.no_applications_before %></td>
+		 
+
+    <td class="<%= cell_class %>"><%= course.quota_schema %></td>
+		 
+
+    
+    <td class="<%= link_cell_class %>"><%= link_to  t('action.edit'), edit_course_path(course) %></td>
+    <td class="<%= link_cell_class %>"><%= link_to t('action.destroy'),  course , :confirm => t('messages.delete.are_you_sure', :model => t("entities.course")), :method => :delete %></td>
+  </tr>
+<% row_counter += 1 %>  	
+<% end %>
+</table>
+<%= will_paginate %>
+
+<br />
+<%= link_to t('headings.new.heading', :model=> t('entities.course')), new_course_path %>

@@ -3,6 +3,7 @@ class CourseTypesController < ApplicationController
   # GET /course_types.xml
   before_filter :authenticate_user!
   #before_filter :find_model,  :only => [:show, :edit, :update, :destroy]
+  @@model ="course_type"
   def index
     @course_types =  CourseType.paginate(:page => params[:page], :per_page=>15)  #CourseType.all
     #@model = :course_type.to_s + " index" 
@@ -46,7 +47,7 @@ class CourseTypesController < ApplicationController
 
     respond_to do |format|
       if @course_type.save
-        format.html { redirect_to( :action=> "index", :notice => 'Course type was successfully created.') }
+        format.html { redirect_to( :action=> "index", :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @course_type, :status => :created, :location => @course_type }
       else
         format.html { render :action => "new" }
@@ -62,7 +63,7 @@ class CourseTypesController < ApplicationController
 
     respond_to do |format|
       if @course_type.update_attributes(params[:course_type])
-        format.html { redirect_to(:action=>”index, :notice => 'Course type was successfully updated.') }
+        format.html { redirect_to(:action=>"index", :notice =>  t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

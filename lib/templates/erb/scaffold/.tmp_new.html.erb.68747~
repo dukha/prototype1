@@ -1,0 +1,5 @@
+<p class="pageheading"><%%= t(headings.new.heading")%> <%= singular_table_name %></p>
+
+<%%= render 'form' %>
+
+<%%= link_to 'Back', <%= index_helper %>_path %>

@@ -3,11 +3,11 @@
   
 	<%% f.inputs do %>
 		<% for attribute in attributes -%>
-		   <%%= f.input :@<%= attribute.name %>  %>   
+		   <%%= f.input :<%= attribute.name %>  %>   
 		<% end %>
 	<%% end %>	
 	<%%= f.buttons do %>
-      <%%= f.commit_button :submit %>    
+      <%%= f.commit_button  %>    
   <%% end %>
 	
 	<%% end %>

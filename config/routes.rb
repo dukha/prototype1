@@ -1,6 +1,10 @@
 Prototype1::Application.routes.draw do
   
 
+  resources :courses
+
+  resources :quota_schemas
+
   #filter :locale #this is for routing-filter
   # config/routes.rb
   scope "(/:locale)" do #, :locale => /en|nl/ do

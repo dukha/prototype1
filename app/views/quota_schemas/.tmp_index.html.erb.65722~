@@ -1,0 +1,37 @@
+<p class="pageheading"><%=t("headings.listing.heading", :model=>t("entities.quota_schemas") )%></p>
+<%= will_paginate %>
+<table class="data">
+  <tr class="dataheader">
+    <th class ="dataheader"><%=t($FL+"name")</th>
+    <th class="linkheader"></th>
+    <th class="linkheader"></th>
+    
+  </tr>
+<% row_class="" %>
+<% row_counter =0 %>  
+<% cell_class = "data" %>
+<% link_cell_class="link"%>  
+<% @quota_schemas.each do |quota_schema| %>
+<% if row_counter%2==0: %>
+  <%  row_class="dataeven" %>
+<% else %>
+  <% row_class ="dataodd"  %>
+<% end %>
+  <tr class = "<%= row_class %>" >
+
+    <td class="<%= cell_class %>"><%= quota_schema.name %></td>
+		 
+
+    
+    <td class="<%= link_cell_class %>"><%= link_to  t('action.edit')%>, edit_quota_schema_path(quota_schema) %></td>
+    <td class="<%= link_cell_class %>"><%= link_to t('action.destroy'),%>  quota_schema , <%=:confirm => t('message.delete.are_you_sure',t("entities.%>quota_schema<%=")), :method => :delete %></td>
+  </tr>
+<% row_counter += 1 %>  	
+<% end %>
+</table>
+<%= will_paginate %>
+
+<br />
+
+<%= link_to 'New Quota schema', new_quota_schema_path %>
+<%= link_to t('headings.new.heading', :model=> t('entities.quota_schema')), new_quota_schema_path %>

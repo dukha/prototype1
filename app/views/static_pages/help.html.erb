@@ -60,9 +60,14 @@
 <p class="c0"><span class="c2">will_paginate is added in the index.html.erb file and the gem is already in the gemfile however now add this line to each new index controller every time you generate. 
 (The index controller will fall over if you don&rsquo;t include this even if you only have a few rows to show ( alternative: delete will_paginate from the *.erb file)</span></p>
 <p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2"><B>Add this to your Controlelr index every time</span></p>
 <p class="c0"><span class="c2">@&lt;types&gt; = &lt;ClassName&gt;.paginate(:page =&gt; params[:page], :per_page=&gt;15)</span></p>
 <p class="c0"><span class="c2">eg.</span></p>
 <p class="c0"><span class="c2">@whiteboard_types = WhiteboardType.paginate(:page =&gt; params[:page], :per_page=&gt;15)</span></p>
+<p class="c0"><span class="c2"><B>Other things to add to your controller every time you scaffold</span></p></B>
+<p class="c0"><span class="c2">1. Translatable success messages for create and update e.g. t('messages.create.success', :model=>@@model)</span></p>
+<p class="c0"><span class="c2">2. Change the redirect after create and update to "index" rather than show (@***)</span></p>
+<p class="c0"><span class="c2">3. add before_filter :authenticate_user! at the top
 <p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">If you get the error &ldquo;undefined method `total_pages&#39; for []:Array&rdquo; thne you need to add the paginate line above to your controller</span></p>
 <p class="c0"><span class="c2">&nbsp;</span></p>
 <p class="c0"><span class="c2">&nbsp;</span></p>
