@@ -72,8 +72,8 @@ log.info("Locations created")
 
 Quota.delete_all
 Quota.create(:name=>"Old Students", :quota=>22, :initial_quota=>29)
-Location.create(:name=>"Male tents", :quota=>4, :initial_quota=>4)
-Location.create(:name=>"Off site servers", :quota=>2, :initial_quota=>2)
-Location.create(:name=>"On site servers", :quota=>6, :initial_quota=>8)
+Quota.create(:name=>"Male tents", :quota=>4, :initial_quota=>4)
+Quota.create(:name=>"Off site servers", :quota=>2, :initial_quota=>2)
+Quota.create(:name=>"On site servers", :quota=>6, :initial_quota=>8)
 
 
