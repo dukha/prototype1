@@ -12,12 +12,12 @@ describe "courses/show.html.erb" do
       :end_time => "End Time",
       :assistant_teacher_id => 1,
       :assistant_teacher_special_cases_id => 1,
-      :assistant_teacher_email => "",
+      :assistant_teacher_email => "Assistant Teacher Email",
       :male_quota_status_id => 1,
       :female_quota_status_id => 1,
       :reconfirmation_days => 1,
       :quota_from_initial_to_actual_days => 1,
-      :registrar_email => "",
+      :registrar_email => "Registrar Email",
       :welcome_letter_sent => false,
       :exported_to_os_database => false,
       :quota_schema => 1
@@ -45,7 +45,7 @@ describe "courses/show.html.erb" do
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     rendered.should match(/1/)
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    rendered.should match(//)
+    rendered.should match(/Assistant Teacher Email/)
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     rendered.should match(/1/)
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
@@ -55,7 +55,7 @@ describe "courses/show.html.erb" do
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     rendered.should match(/1/)
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    rendered.should match(//)
+    rendered.should match(/Registrar Email/)
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     rendered.should match(/false/)
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers

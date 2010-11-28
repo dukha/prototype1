@@ -13,12 +13,12 @@ describe "courses/index.html.erb" do
         :end_time => "End Time",
         :assistant_teacher_id => 1,
         :assistant_teacher_special_cases_id => 1,
-        :assistant_teacher_email => "",
+        :assistant_teacher_email => "Assistant Teacher Email",
         :male_quota_status_id => 1,
         :female_quota_status_id => 1,
         :reconfirmation_days => 1,
         :quota_from_initial_to_actual_days => 1,
-        :registrar_email => "",
+        :registrar_email => "Registrar Email",
         :welcome_letter_sent => false,
         :exported_to_os_database => false,
         :quota_schema => 1
@@ -33,12 +33,12 @@ describe "courses/index.html.erb" do
         :end_time => "End Time",
         :assistant_teacher_id => 1,
         :assistant_teacher_special_cases_id => 1,
-        :assistant_teacher_email => "",
+        :assistant_teacher_email => "Assistant Teacher Email",
         :male_quota_status_id => 1,
         :female_quota_status_id => 1,
         :reconfirmation_days => 1,
         :quota_from_initial_to_actual_days => 1,
-        :registrar_email => "",
+        :registrar_email => "Registrar Email",
         :welcome_letter_sent => false,
         :exported_to_os_database => false,
         :quota_schema => 1
@@ -67,7 +67,7 @@ describe "courses/index.html.erb" do
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => "Assistant Teacher Email".to_s, :count => 2
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
@@ -77,7 +77,7 @@ describe "courses/index.html.erb" do
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => "Registrar Email".to_s, :count => 2
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
     assert_select "tr>td", :text => false.to_s, :count => 2
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
