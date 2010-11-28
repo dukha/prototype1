@@ -61,14 +61,6 @@ log.info Whiteboard.find(:all)
 
 log.info("Whiteboard Demo data inserted successfully. Record count = " +Whiteboard.count.to_s) 
 
-User.delete_all
-User.create(:email=> "mark@gmail.com", :password=>"xxxxxx",:username=>"mark", :language_id=>Language.find_by_iso_code("en").id, :password_confirmation=>"xxxxxx")
-
-User.create(:email=> "ernst@ernst.com", :password=>"xxxxxx", :username=>"ernst", :language_id=>Language.find_by_iso_code("en").id, :password_confirmation=>"xxxxxx")
-
-User.create(:email=> "mark-nl@gmail.com", :username=>"mark-nl", :language_id=>Language.find_by_iso_code("nl").id, :password=>"xxxxxx", :password_confirmation=>"xxxxxx")
-
-User.create(:email=> "ernst-nl@ernst.com", :username=>"ernst-nl", :language_id=>Language.find_by_iso_code("nl").id, :password=>"xxxxxx", :password_confirmation=>"xxxxxx")
 
 log.info("Users created")
 
