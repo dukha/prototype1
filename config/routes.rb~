@@ -1,4 +1,4 @@
-Prototype1::Application.routes.draw do
+DeviseCancanFormtastic::Application.routes.draw do
   
 
   #filter :locale #this is for routing-filter

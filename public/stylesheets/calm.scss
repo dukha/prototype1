@@ -18,7 +18,7 @@ img.logo{
    /*border-style:solid;*/
 }
 #headerlayout{
-    width:100%;
+    width:90%;
 }
 .heading, .subheading{
     color:$headingcolor;
@@ -75,7 +75,7 @@ img.logo{
   left:$menuwidth+$margin*2 +$padding*2;
   margin:$margin;
   padding:$padding;
-  width:100%;
+  width:90%;
   height:500px;
 }
 
@@ -133,6 +133,9 @@ ul.menu{
   font-size:small;
   padding: 0px;
   margin:0px;
+}
+#signoutbutton{
+	
 }
 table.whiteboard{
   border-style:none;

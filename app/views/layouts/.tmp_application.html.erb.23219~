@@ -14,7 +14,15 @@
 	
 	<%= stylesheet_link_tag  'google.docs.css','application.css', 'formtastic.css', 'formtastic_changes.css', 'ui-lightness/jquery-ui-1.8.6.custom.css',
                                              'custom.css', 'donotedit/calm.css', :cache => 'base' %> 
-  <!-- style media="screen" type="text/css">  div, td.maindisplay  { border-style: none; border-width:1px; border-color:red; } td{border-color:green;} </style -->
+  <style media="screen" type="text/css"> 
+    
+  div, td.maindisplay  {
+    border-style: none;
+    border-width:1px;
+    border-color:red;
+  }
+	td{border-color:green;}
+  </style>
 	
   <%= csrf_meta_tag %>
 </head>

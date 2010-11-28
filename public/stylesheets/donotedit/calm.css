@@ -13,7 +13,7 @@ img.logo {
   /*border-style:solid;*/ }
 
 #headerlayout {
-  width: 100%; }
+  width: 90%; }
 
 .heading, .subheading {
   color: #c6e5e7;
@@ -66,7 +66,7 @@ img.logo {
   left: 258px;
   margin: 2px;
   padding: 2px;
-  width: 100%;
+  width: 90%;
   height: 500px; }
 
 #appfooter {

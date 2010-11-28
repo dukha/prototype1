@@ -14,6 +14,7 @@ gem 'will_paginate','3.0.pre2'
 
 gem 'ruby-debug'
 gem 'jquery-rails'
+#helps with I18n not used at present
 gem 'routing-filter'
 
 group :development, :test do
