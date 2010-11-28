@@ -3,6 +3,7 @@ class LanguagesController < ApplicationController
   # GET /languages.xml
   before_filter :authenticate_user!
   @@model ="language"
+  @@translated_model = t(@@model)
   def index
     @languages = Language.paginate(:page => params[:page], :per_page=>15)
 
@@ -46,7 +47,8 @@ class LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.save
-        format.html { redirect_to(:action=>"index", :notice => t('messages.create.success', :model=>@@model)) }
+        flash[:success] = t('messages.create.success', :model=>@@translated_model)
+        format.html { redirect_to(:action=>"index")} # , :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @language, :status => :created, :location => @language }
       else
         format.html { render :action => "new" }
@@ -62,7 +64,8 @@ class LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.update_attributes(params[:language])
-        format.html { redirect_to(:action=>'index', :notice => t('messages.update.success', :model=>@@model)) }
+        flash[:success] = t('messages.update.success', :model=>@@translated_model)
+        format.html { redirect_to(:action=>'index')} #, :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

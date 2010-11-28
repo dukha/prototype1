@@ -1,0 +1,134 @@
+<a name="h.p8bi2u-bsy4fl"></a><p class="pageheading">Developers Getting started log...</p>
+
+<p class="c0"><span class="c2">Choices made by Mark for this document while preparing the first prototype. May need to be discussed before proceeding further.</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><ol class="c10"><li class="c1" value="1">
+<span class="c2">We will use the github account created by Kristian (not used by the prototype)</span></li>
+<li class="c1"><span class="c2">We will use activerecord as orm manager. </span></li>
+<li class="c1"><span class="c2">We will use jquery-ujs for the ajax interface ( not the standard ajax, called Prototype).</span></li>
+
+<li class="c1"><span class="c2">We will use sass for doing css</span></li>
+<li class="c1"><span class="c2">Possibly Ruby 1.8.7 is the good version of ruby.</span></li>
+<li class="c1"><span class="c2">We will use both nifty and formtastic (and the accompanying stylesheets) to help with layout.</span></li>
+<li class="c1"><span class="c2">We will use devise for authentication.</span></li><li class="c1"><span class="c2">We will probably use CanCan for authorisation.</span></li>
+<li class="c1"><span class="c2">We will use postgresql for the database (even though the prototype does not (no time).</span></li>
+<li class="c1"><span class="c2">We will use rspec for tdd.</span></li><li class="c1"><span class="c2">We will use erb (not haml) for the views</span></li>
+<li class="c1"><span class="c2">We will do internationalisation through the I18n gem using the standard backend. This means that the translation files will be yaml file (too bad: it gets very messy if you don&rsquo;t count your indentations properly!)</span></li>
+<li class="c1"><span class="c2">We will use the default internationalisation that comes with formtastic. This way we avoid having to use keys for forms. (Of course we still need the formtastic/activerecord keys in the *.yml files.</span></li></ol><p class="c0 c9"><a name="h.lsigk6-srd4a1"></a>
+<span class="c5 c6">Preparing to start as a developer</span></p><p class="c0"><span class="c2">You need either linux or Mac osX (Windows just won&rsquo;t cut it: you probably could get it going on Windows but there would be a lot of heartache on the way). All these directions have been done on Linux but something roughly similar can happen on a Mac. </span></p>
+<p class="c0 c3"><a name="h.sexw4n-rfiynn"></a><span class="c2 c5">Editors</span></p><p class="c0"><span class="c2">The big advantage of a Mac is that you get to use the checkmate text editor (highly &nbsp;recommended) as part of your toolkit. I use either Netbeans 6.9 or Eclipse 3.6. with the Ruby plugins. (Eclipse is actually Aptana with RadRails). Neither is great but they do make it easier for you. I use them just as text editors and use the command line for the rest, even though both RadRails and NB Rails plugin claim to be IDE&rsquo;s. I use a terminal for everything else. You can also use something more low grade like gedit or vim (vim has a ruby plugin). &nbsp;(With your Editor, make sure you have your preferences set to Expand tabs to spaces, Spaces per indent=2 Spaces per tab=2.)</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0 c3"><a name="h.m20qng-t03w8"></a><span class="c2 c5">Begin</span></p><p class="c0"><span class="c2">You will need openssl, libopenssl, libopenssl-devel, libxml2, libxslt2, libxml2-devel, libxslt2-devel installed by your package manager (yast, rpm, whatever)</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">If no ruby on your os then</span></p><p class="c0"><span class="c2"> &nbsp;Install ruby thorugh your os package manager (yast, rpm etc). If it doesn&#39;t deliver greater than ruby 1.8.0 then manually install a higher version of ruby (or upgrade your os))</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0 c3"><a name="h.24db1w-pd6gpd"></a><span class="c2 c5">Install rvm (This is what I did, not what worked)</span></p>
+<p class="c0"><span class="c2">Instructions from the rvm site (I actually followed Railcasts which is clearer without the poespas..seems to work.. except with me it didn&rsquo;t. I installed ruby as root then couldn&rsquo;t get RVM to work for root...)</span></p><p class="c0"><span class="c2">We&#39;ll be working with git so try</span></p><p class="c0"><span class="c2">install git first</span></p><p class="c0"><span class="c2">$ bash &lt; &lt;( curl http://rvm.beginrescueend.com/install/git )</span></p>
+<p class="c0"><span class="c2">then rvm</span></p><p class="c0"><span class="c2">$ bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Just rvm alone is</span></p><p class="c0"><span class="c2">$ bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )</span></p>
+<p class="c0"><span class="c2">or if the above doesn&#39;t work try updating</span></p><p class="c0"><span class="c2">$ bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Once rvm is installed check your version of ruby</span></p><p class="c0"><span class="c2">$ ruby -v</span></p><p class="c0"><span class="c2">If not &gt; 1.9.2</span></p>
+<p class="c0"><span class="c2">$ rvm install 1.9.2</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">N.B. We may need to use ruby 1.8.7 as ruby-debug (and some other gems) currently do not work on 1.9.2 (Probably needs some work to get it to work: there is a beast called ruby-debug19. Couldn&rsquo;t get it to install.)</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">This gives us (say) ruby 1.8.7 installed outside rvm and 1.9.2 under rvm</span></p>
+<p class="c0"><span class="c2">Follow the help in rvm by use of the --default switch to make your ruby the same as the project ruby.</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">$rails new &lt;project&gt;</span></p><p class="c0"><span class="c2">edit gemfile</span></p><p class="c0"><span class="c2"># use we want to use postgresql. This is what I did for the prototype &nbsp;</span></p>
+<p class="c0"><span class="c2">gem &#39;sqlite3-ruby&#39;, :require =&gt; &#39;sqlite3&#39;</span></p><p class="c0"><span class="c2">gem &#39;formtastic&#39;</span></p>
+<p class="c0"><span class="c2">gem &#39;nifty-generators&#39;</span></p><p class="c0"><span class="c2">gem &#39;devise&#39;</span></p><p class="c0"><span class="c2">gem &#39;cancan&#39;</span></p><p class="c0"><span class="c2">gem &#39;nokogiri&#39;</span></p>
+<p class="c0"><span class="c2">gem &#39;will_paginate&#39;</span></p><p class="c0"><span class="c2">gem &#39;ruby-debug&#39;</span></p><p class="c0"><span class="c2">gem &#39;jquery-rails&#39;</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">group :development, :test do</span></p><p class="c0"><span class="c2"> &nbsp;gem &#39;rspec-rails&#39; </span></p><p class="c0"><span class="c2"> &nbsp;gem &#39;webrat&#39;</span></p><p class="c0"><span class="c2"> &nbsp;gem &#39;annotate-models&#39;</span></p><p class="c0"><span class="c2"> &nbsp;gem &#39;faker&#39;</span></p><p class="c0"><span class="c2"> &nbsp;gem &#39;factory_girl_rails&#39;</span></p><p class="c0"><span class="c2"> &nbsp;#haml only for sass</span></p><p class="c0"><span class="c2"> &nbsp;gem &#39;haml&#39;</span></p>
+<p class="c0"><span class="c2">end</span></p><p class="c0"><span class="c2">$ bundle install</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">generate the app layout</span></p>
+<p class="c0"><span class="c2">$ rails g nifty:layout</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">setup formtastic</span></p>
+<p class="c0"><span class="c2">$ rails g formtastic:install</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">setup rspec</span></p><p class="c0"><span class="c2">$ rails g rspec:install</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">install a plugin for DRY validation in formtastic (This means that you don&rsquo;t have to put validations inot both the controller and the view. Reflection migrates them to the view...)</span></p><p class="c0"><span class="c2">$ rails plugin install git://github.com/redinger/validation_reflection.git</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">install jquery-ujs : This didn&#39;t work for me and may need to be done manually. See the web site. &nbsp;(This installs a UJS version of jquery so that you can easily work with html5 and the new data* attributes to keep things restful.</span></p><p class="c0"><span class="c2"> </span></p><p class="c0"><span class="c2">$ rails generate jquery:install --ui</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Do do the manual install of jquery-ujs:</span></p>
+<p class="c0"><span class="c2">download jquery 1.4.4 into public/javascripts</span></p><p class="c0"><span class="c2">download github.com/rails/jquery-ujs/raw/master/src/rails.js into public/javascripts</span></p><p class="c0"><span class="c2">download jquery-ui into public/javascripts</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">uncomment the following line in config/application.rb</span></p><p class="c0"><span class="c2">config.action_view.javascript_expansions[:defaults] = %w(jquery rails application)</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">get one time setup/machine</span></p>
+<p class="c0"><span class="c2">$ git config --global user.name &quot;Your Name&quot;</span></p><p class="c0"><span class="c2">$ git config --global user.email youremail@example.com</span></p><p class="c0"><span class="c2">$ git config --global alias.co checkout</span></p><p class="c0"><span class="c2">(other aliases that you may want to use also)</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Join github</span></p><p class="c0"><span class="c2">Once the remote repository is setup for calm then add your email &nbsp;address that you used when joining github to the calm repository. (Ernst or Mark will do this for you via Kristian.)</span></p><p class="c0"><span class="c2">Install the heroku gem</span></p><p class="c0"><span class="c2">How to work</span></p>
+<p class="c0"><span class="c2">Checkout from the hub </span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">$ git co -b &lt;branch-name&gt;</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">make changes</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">add and commit</span></p><p class="c0"><span class="c2">$ git commit -a -m &quot;commit message&quot;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">merge</span></p><p class="c0"><span class="c2">$ git co master</span></p>
+<p class="c0"><span class="c2">$ git merge &lt;branch-name&gt;</span></p>
+<p class="c0"><span class="c2">get rid of branch</span></p><p class="c0"><span class="c2">$ git -d &lt;branch-name&gt;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">or abandon (no merge use -D)</span></p>
+<p class="c0"><span class="c2">$ git co master</span></p><p class="c0"><span class="c2">$ git -D &lt;branch-name&gt;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">push changes to hub</span></p>
+<p class="c0"><span class="c2">$ git push</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">deploy on heroku</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">$ git push heroku master</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0 c3"><a name="h.a9efzq-7y5k2l"></a><span class="c2 c5">Modify layout according to our wishes</span></p>
+<p class="c0"><span class="c2">Remember to use sass. Edit .scss files in the public/stylesheets dir</span></p>
+<p class="c0"><span class="c2">Setup your sass watcher in a terminal</span></p>
+<p class="c0"><span class="c2">$ sass --watch public/stylesheets/calm.scss:public/stylesheets/donotedit/calm.css</span></p>
+<p class="c0"><span class="c2">Now, Remember not to edit any of the files in public/stylesheets/donotedit dir. Your changes will be overwritten next time someone starts that sass watcher!!!</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">Start the real work: I did 1 lookup table before devise and cancan</span></p><p class="c0"><span class="c2">$ rails g scaffold course_type old_code:string translation_code:string description:string last_day:integer --rspec</span></p>
+<p class="c0"><span class="c2">will_paginate is added in the index.html.erb file and the gem is already in the gemfile however now add this line to each new index controller every time you generate. 
+(The index controller will fall over if you don&rsquo;t include this even if you only have a few rows to show ( alternative: delete will_paginate from the *.erb file)</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2"><B>Add this to your Controlelr index every time</span></p>
+<p class="c0"><span class="c2">@&lt;types&gt; = &lt;ClassName&gt;.paginate(:page =&gt; params[:page], :per_page=&gt;15)</span></p>
+<p class="c0"><span class="c2">eg.</span></p>
+<p class="c0"><span class="c2">@whiteboard_types = WhiteboardType.paginate(:page =&gt; params[:page], :per_page=&gt;15)</span></p>
+<p class="c0"><span class="c2"><B>Other things to add to your controller every time you scaffold</span></p></B>
+<p class="c0"><span class="c2">1. Translatable success messages for create and update e.g. t('messages.create.success', :model=>@@model)</span></p>
+<p class="c0"><span class="c2">2. Change the redirect after create and update to "index" rather than show (@***)</span></p>
+<p class="c0"><span class="c2">3. add before_filter :authenticate_user! at the top
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">If you get the error &ldquo;undefined method `total_pages&#39; for []:Array&rdquo; thne you need to add the paginate line above to your controller</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">// beware the nifty does not appear to find custom view templates</span></p><p class="c0"><span class="c2">rake db:migrate</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Then overwrite the form partial with formtastic (note that you must already have generated at least the model and run rake db:migrate after generating.)</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">$rails g formtastic:form course_type --partial</span></p>
+<p class="c0"><span class="c2">The generated form is incomplete: you then must add the first 2 lines</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&lt;% semantic_form_for @course_type do |f| %&gt; </span></p>
+<p class="c0"><span class="c2"> &lt;%= f.error_messages %&gt;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">and the last 3 (plus further buttons if you need them)</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2"> &lt;% f.buttons do %&gt;</span></p>
+<p class="c0"><span class="c2"> &nbsp; &nbsp; &lt;%= f.commit_button :submit %&gt; &nbsp; </span></p>
+<p class="c0"><span class="c2"> &lt;% end %&gt;</span></p>
+<p class="c0"><span class="c2">&lt;% end %&gt;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">Now to Devise</span></p><p class="c0"><span class="c2">$ &nbsp;rails g devise:install</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Make sure there is an actionmailer config a flash handler and a root :to as devise requests after the install</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">$ rails g devise User</span></p>
+<p class="c0"><span class="c2">From User model</span></p>
+<p class="c0"><span class="c2">remove &nbsp;;registerable, rememberable</span></p>
+<p class="c0"><span class="c2">add :lockable, timeoutable,</span></p>
+<p class="c0"><span class="c2">after adding the first user remove :confirmable</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">add</span></p><p class="c0"><span class="c2">has_one :language</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">comment/uncomment same in db/migration/*users.rb</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">$ rake db:migrate</span></p>
+<p class="c0"><span class="c2">Show the routes in a terminal (this doesn&#39;t necessarily mean that all routes work.)</span></p>
+<p class="c0"><span class="c2">$ rake routes</span></p><p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">Now to customize the devise views</span></p>
+<p class="c0"><span class="c2">rails g devise:views</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">Some changes made to basic configuration of generated classes (manually)</span></p>
+<p class="c0"><span class="c2">Getting rid of show action</span></p><p class="c0"><span class="c2">In controllers</span></p><
+p class="c0"><span class="c2">redirect_to in create and update</span></p>
+<p class="c0"><span class="c2">remove @&lt;model_name&gt; as 1st param and replace with :action=&gt;&rdquo;index&rdquo;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">Remove Show links from index forms</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">**************</span></p>
+<p class="c0"><span class="c2">rails generate migration add_username_to_users username:string</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">rails g scaffold whiteboard_type name:string translation_code:string --rspec</span></p><p class="c0"><span class="c2">rake db:migrate</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">rake db:migrate</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">rails g scaffold whiteboard info:string whiteboard_type_id:integer &nbsp;--rspec</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">rails g scaffold location old_code:string name:string</span></p>
+<p class="c0"><span class="c2">*****************</span></p>
+<p class="c0 c3"><a name="h.qj1neh-phslqj"></a><span class="c2 c5">Internationalisation</span></p>
+<p class="c0"><span class="c2">In the prototype, the translation files got messy very quickly. We need a systematic way of naming the keys.</span></p>
+<p class="c0"><span class="c2">All keys need to be used like this in the views t(&lsquo;first.second.label&rsquo;) for a straight translation (with the exception of formtastic standard keys). </span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">For interpolation of the translation, go like this t(&lsquo;first.second.direction, :interpolation=&gt; &lsquo;XXX&rsquo;). The interpolation is indicated in the translation file by %{interpolation} </span></p>
+<p class="c0"><span class="c2">e.g.</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">en:</span></p><p class="c0"><span class="c2"> &nbsp;formtastic:</span></p><p class="c0"><span class="c2"> &nbsp; &nbsp;labels:</span></p>
+<p class="c0"><span class="c2"> &nbsp; &nbsp; &nbsp;student_name: Mark</span></p>
+<p class="c0"><span class="c2"> &nbsp; &nbsp;hints:</span></p>
+<p class="c0"><span class="c2"> &nbsp; &nbsp; &nbsp;student_name: Enter the family name of the student </span></p><p class="c0"><span class="c2"><br> &nbsp;first</span></p>
+<p class="c0"><span class="c2"> &nbsp; &nbsp;second: :</span></p>
+<p class="c0"><span class="c2"> &nbsp; &nbsp; &nbsp;direction: Do everything just like %{interpolation} says &nbsp;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">I even found myself doing translation of the interpolation like </span></p>
+<p class="c0"><span class="c2">t(&lsquo;first.second.direction, :interpolation=&gt;t( &lsquo;XXX&rsquo;) ).</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p>
+<p class="c0"><span class="c2">&nbsp;</span></p><p class="c0"><span class="c2">&nbsp;</span></p>

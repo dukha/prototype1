@@ -26,8 +26,7 @@
     <div id="appheader" style= "border-color:red;">
       <%= render 'layouts/header' %>
     </div>
-	  
-
+  
     
    <table id ="appmaintable" >
       <tr>
@@ -44,8 +43,9 @@
 			      <% flash.each do |name, msg| %>
 			        <%= content_tag :div, msg, :id => "flash_#{name}" %>
 			      <% end %>
-						
-						 
+						<!-- the 2 paras are probably not necessary but devise asked so I do -->
+						 <!--p class="notice"><%= notice %></p  ->
+			       <!--p class="alert"><%= alert %></p -->
 			
 			      <%= content_tag :h1, yield(:title) if show_title? %>
 			      <%= yield %>

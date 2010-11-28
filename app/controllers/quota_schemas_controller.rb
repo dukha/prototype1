@@ -2,6 +2,9 @@ class QuotaSchemasController < ApplicationController
   # GET /quota_schemas
   # GET /quota_schemas.xml
   before_filter :authenticate_user!
+  @@model="quota_schema"
+  @@translated_model = t(@@model)
+  
   def index
     @quota_schemas = QuotaSchema.paginate(:page => params[:page], :per_page=>15)
      
@@ -46,7 +49,8 @@ class QuotaSchemasController < ApplicationController
 
     respond_to do |format|
       if @quota_schema.save
-        format.html { redirect_to(:action=>'index', :notice => t('messages.create.success', :model=>@@model)) }
+        flash[:success] = t('messages.create.success', :model=>@@translated_model)
+        format.html { redirect_to(:action=>'index')} #, :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @quota_schema, :status => :created, :location => @quota_schema }
       else
         format.html { render :action => "new" }
@@ -62,7 +66,8 @@ class QuotaSchemasController < ApplicationController
 
     respond_to do |format|
       if @quota_schema.update_attributes(params[:quota_schema])
-        format.html { redirect_to(:action=>'index', :notice => t('messages.update.success', :model=>@@model)) }
+        flash[:success] = t('messages.update.success', :model=>@@translated_model)
+        format.html { redirect_to(:action=>'index')} #, :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
