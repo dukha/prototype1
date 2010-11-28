@@ -62,11 +62,18 @@ log.info Whiteboard.find(:all)
 log.info("Whiteboard Demo data inserted successfully. Record count = " +Whiteboard.count.to_s) 
 
 
-log.info("Users created")
+log.info("Users not  created")
 
 Location.delete_all
 Location.create(:old_code=>"BRISBA", :name=>"Brisbane")
 Location.create(:old_code=>"RASMI", :name=>"Dahamma Rasmi")
 
 log.info("Locations created")
+
+Quota.delete_all
+Quota.create(:name=>"Old Students", :quota=>22, :initial_quota=>29)
+Location.create(:name=>"Male tents", :quota=>4, :initial_quota=>4)
+Location.create(:name=>"Off site servers", :quota=>2, :initial_quota=>2)
+Location.create(:name=>"On site servers", :quota=>6, :initial_quota=>8)
+
 
