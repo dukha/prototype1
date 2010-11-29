@@ -4,7 +4,8 @@ class CourseTypesController < ApplicationController
   before_filter :authenticate_user!
   #before_filter :find_model,  :only => [:show, :edit, :update, :destroy]
   @@model ="course_type"
-  @@translated_model = t(@@model)
+  @@model_translation_code ="entities." +@@model
+  #translated_model = t("entities.course_type")#@@model
   def index
     @course_types =  CourseType.paginate(:page => params[:page], :per_page=>15)  #CourseType.all
     #@model = :course_type.to_s + " index" 
@@ -48,7 +49,7 @@ class CourseTypesController < ApplicationController
 
     respond_to do |format|
       if @course_type.save
-        flash[:success] = t('messages.create.success', :model=>@@translated_model)
+        flash[:success] = t('messages.create.success', :model=>t(@@model_translation_code))
         format.html { redirect_to( :action=> "index") }#, :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @course_type, :status => :created, :location => @course_type }
       else
@@ -65,7 +66,7 @@ class CourseTypesController < ApplicationController
 
     respond_to do |format|
       if @course_type.update_attributes(params[:course_type])
-        flash[:success] = t('messages.update.success', :model=>@@translated_model)
+        flash[:success] = t('messages.update.success', :model=>t(@@model_translation_code))
         format.html { redirect_to(:action=>"index")} #, :notice =>  t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else

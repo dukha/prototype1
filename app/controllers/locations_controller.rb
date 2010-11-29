@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   # GET /locations.xml
   before_filter :authenticate_user!
   @@model ="location"
-  @@translated_model = t(@@model)
+  @@model_translation_code ="entities." +@@model
   def index
     @locations = Location.paginate(:page => params[:page], :per_page=>15)
 
@@ -47,7 +47,7 @@ class LocationsController < ApplicationController
      
     respond_to do |format|
       if @location.save
-        flash[:success] = t('messages.create.success', :model=>@@translated_model)
+        flash[:success] = t('messages.create.success', :model=>t(@@model_translation_code))
         format.html { redirect_to(:action=>"index" )} #, :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
       else
@@ -64,7 +64,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.update_attributes(params[:location])
-        flash[:success] = t('messages.update.success', :model=>@@translated_model)
+        flash[:success] = t('messages.update.success', :model=>t(@@model_translation_code))
         format.html { redirect_to(:action=>'index')} #, :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else

@@ -3,7 +3,7 @@ class WhiteboardTypesController < ApplicationController
   # GET /whiteboard_types.xml
   before_filter :authenticate_user!
   @@model ="whiteboard_type"
-  @@translated_model = t(@@model)
+  @@model_translation_code ="entities." +@@model
   def index
     @whiteboard_types = WhiteboardType.paginate(:page => params[:page], :per_page=>15)
 
@@ -47,7 +47,7 @@ class WhiteboardTypesController < ApplicationController
 
     respond_to do |format|
       if @whiteboard_type.save
-        flash[:success] = t('messages.create.success', :model=>@@translated_model)
+        flash[:success] = t('messages.create.success', :model=>t(@@model_translation_code))
         format.html { redirect_to(:action=>'index')} #, :notice => t('messages.create.success', :model=>@@model)) }
         format.xml  { render :xml => @whiteboard_type, :status => :created, :location => @whiteboard_type }
       else
@@ -64,7 +64,7 @@ class WhiteboardTypesController < ApplicationController
 
     respond_to do |format|
       if @whiteboard_type.update_attributes(params[:whiteboard_type])
-        flash[:success] = t('messages.update.success', :model=>@@translated_model)
+        flash[:success] = t('messages.update.success', :model=>t(@@model_translation_code))
         format.html { redirect_to(:action=>'index')} #, :notice => t('messages.update.success', :model=>@@model)) }
         format.xml  { head :ok }
       else
