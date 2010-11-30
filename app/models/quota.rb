@@ -1,7 +1,7 @@
 class Quota < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
-  validates :quota, :presence => true, :uniqueness => false
-  validates :initial_quota, :presence => true, :uniqueness => false
+  validates :quota, :presence => true
+  validates :initial_quota, :presence => true
   
   attr_accessible  :name, :initial_quota, :quota
   

@@ -62,7 +62,7 @@ log.info Whiteboard.find(:all)
 log.info("Whiteboard Demo data inserted successfully. Record count = " +Whiteboard.count.to_s) 
 
 
-log.info("Users not  created")
+
 
 Location.delete_all
 Location.create(:old_code=>"BRISBA", :name=>"Brisbane")
