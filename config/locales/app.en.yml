@@ -2,11 +2,14 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  commons:
+    noo: No
+    yess: Yes
   helpers: 
     submit:
       create: "Create a %{model}"
       update: "Confirm changes to %{model}"
-        
+         
     labels:
       student:
         first_name: First Namex
@@ -36,11 +39,11 @@ en:
   messages:
     delete:
       are_you_sure: Deleting %{model}. Are you sure?
-      success: %{model} was successfully deleted.
+      success: The %{model} was successfully deleted.
     create:
-      success: %{model} was successfully created.
+      success: The %{model} was successfully created.
     update:
-      success: %{model} was successfully updated. 
+      success: The %{model} was successfully updated. 
   activerecord:
     #sign_up: Sign up
     sign_in: Sign in
@@ -59,13 +62,14 @@ en:
       heading: Editing %{model}
       user: Edit User   
     listing:
-      heading: Listing %{model}
-        
+      heading: Listing %{model}        
     application_subheading: Developers Discussion Prototype 
     whiteboards: Home; Whiteboard    
   entities:
     course_type: Course Type
     course_types: Course Types
+    course: Course
+    courses: Courses
     location: Location
     locations: Locations
     quota: Quota
@@ -76,8 +80,6 @@ en:
     whiteboard_types: Whiteboard Types
     language: Language
     languages: Languages
-    course: Course 
-    courses: Courses
     user: User
     users: Users 
     whiteboard_type: Whiteboard Type
@@ -104,8 +106,7 @@ en:
     user_preferences: User Preferences(Change Password)
     admin: Admin
     new_user: New User
-    change_password: Change Password
-      
+    change_password: Change Password      
   lookups:
     course_type:
       10day: 10 Day Course
@@ -138,20 +139,29 @@ en:
       iso_code: ISO Language Code
       old_code: Old Code
       oldcode: Old Code
-      email: email
-      password: password
+      email: Email
+      password: Password
+      begin_date: Begin Date
+      end_date: End Date
+      old_students_only: Old Students Only
       quota:
         name: Name 
         quota: Quota
         initial_quota: Initial Quota
         days_from_start_init_to_real: Days from Course to Use Real Quota
-      users: 
+      user: 
         language: Choose the language that will be used for using the calm screens
+      course:
+        course_type_id: Course Type
+        location_id: Location
     hints:
       password: Enter password here
       confirm_password: Enter password again
       email: Enter valid email address where user can be contacted
-      username: Enter name that the user will use to sign letters (usually not just initials). 
+      username: Enter name that the user will use to sign letters (usually not just initials).
+      begin_date: First day of the course
+      end_date: Last day of the course
+      old_students_only: (Click on if no new students may attend the course e.g. Sati) 
       quota:
         name: Name of quota here, eg New Males, Males etc
         quota: Number of students in this quota  
@@ -159,7 +169,10 @@ en:
         days_from_start_init_to_real: Start using the real quota, not the initial quota, say, 7 days before the course
       user:
         passwordedit: Leave blank if the password is to remain unchanged  
+      courses:
+        course_type_id: Choose the course type from list
+        location_id: Choose the location from the list
     actions:
-      #sign_in: Sign in
+      sign_in: Sign in
       save: Save %{model}
       update: Update %{model}  

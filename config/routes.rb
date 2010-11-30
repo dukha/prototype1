@@ -1,9 +1,7 @@
 Prototype1::Application.routes.draw do
   
 
-  resources :courses
-
-  resources :quota_schemas
+  
 
   #filter :locale #this is for routing-filter
   # config/routes.rb
@@ -23,6 +21,10 @@ Prototype1::Application.routes.draw do
   
     resources :course_types
     resources :application_languages
+    
+    resources :courses
+
+    resources :quota_schemas
    end  
     get "static_pages/home"
   

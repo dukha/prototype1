@@ -1,8 +1,12 @@
 class CoursesController < ApplicationController
+  before_filter :authenticate_user!
+  @@model ="course"
+  @@model_translation_code ="entities." +@@model
+  
   # GET /courses
   # GET /courses.xml
   def index
-    @courses = Course.all
+    @courses =  Course.paginate(:page => params[:page], :per_page=>15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +48,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to(@course, :notice => 'Course was successfully created.') }
+        flash[:success] = t('messages.create.success', :model=>t(@@model_translation_code))
+        format.html { redirect_to(:action=>"index")} #, :notice => 'Course was successfully created.') }
         format.xml  { render :xml => @course, :status => :created, :location => @course }
       else
         format.html { render :action => "new" }
@@ -60,7 +65,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to(@course, :notice => 'Course was successfully updated.') }
+        flash[:success] = t('messages.update.success', :model=>t(@@model_translation_code))
+        format.html { redirect_to(:action=>"index")} #, :notice => 'Course was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

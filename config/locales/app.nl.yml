@@ -1,9 +1,9 @@
 nl:
   helpers: 
     submit:
-      create: "Creer %{model}"
+      create: "Creëren %{model}"
       update: "Bevestig veranderingen aan %{model}"
-        
+      sign_in: Inloggen  
   action:
     show: Laten zien
     edit: Verwerken
@@ -22,11 +22,11 @@ nl:
   messages:
     delete:
       are_you_sure: Verwijder %{model}. Weet u zeker?
-      success: %{model} verwijderd.
+      success: De %{model} verwijderd.
     create:
-      success: %{model} gecreerd.
+      success: De %{model} gecreëren.
     update:
-      success: %{model} verwerkte. 
+      success: De %{model} verwerkte. 
   activerecord:
     #sign_up: Sign up
     sign_in: Inloggen
@@ -52,6 +52,8 @@ nl:
   entities:
     course_type: Soort cursus
     course_types: Soorten cursus
+    course: Cursus
+    courses: Cursussen
     location: Locatie
     locations: Locaties
     quota:  Evenredig deel
@@ -62,14 +64,12 @@ nl:
     whiteboard_types: Soorten whiteboard
     language: Taal
     languages: Talen
-    course: Cursus 
-    courses: Cursessen
     whiteboard: Whiteboard
     whiteboards: Whiteboards
     user: Gebruiker
     users: Gebruikers
   menus:
-    courses: Curussen
+    courses: Cursussen
     current_courses_list: Huidige cursusen lijst
     current_course: Huidige Cursus
     add_course: Cursus toevoegen
@@ -122,15 +122,19 @@ nl:
       iso_code: ISO taal code
       old_code: Oude code
       oldcode: Oude code
-      email: email
-      password: wachtword
+      email: Email
+      password: Wachtword
+      begin_date: Begin datum
+      end_date: Eind datum
+      old_students_only: Alleen oude studenten
       quota:
         name: Naam
         quota: Evenredig deel
         initial_quota: Eerste evenredig deel
         days_from_start_init_to_real: Daggen van cursus te gebruiken echte quota
-        
-      
+      course:
+        course_type_id: Soort Cursus
+        location_id: Locatie     
       first_name: Eerste naam
       last_name: Laatse naam
       dob: Geboortedatum  
@@ -139,6 +143,9 @@ nl:
       confirm_password: Nog een keer het zelfde wachtword
       email: Een geldige email adres toevoegen
       username: Een naam die kan gebruikt worden voor aantekenen van emailtjes 
+      begin_date: Het begin van de cursus
+      end_date: Het eind van de cursus
+      old_students_only: (Klik als er geen nieuwe student mag de cursus deelnamen)
       quota:
         name: Naam van evenredig deel here bvd Nieuwe mannen, Vrouwen
         quota: Aantal studenten in evenredig deel 
@@ -146,7 +153,13 @@ nl:
         days_from_start_init_to_real: Begin te gebruiken de echte quota, niet de eerste evenredig deel, bvd, 7 daggen voor de cursus
       user:
         passwordedit: Laat leeg als geen wachtwoord verandering 
+      courses:
+        course_type_id: Kies de soort cursus vanuit het lijtje
+        location_id: Kies de locatie vanuit de lijst
     actions:
-      #sign_in: Inloggen
+      sign_in: Inloggen
       create: Wegschrijven #nieuwe %{model}
-      update: Wegschrijven #%{model}     
+      update: Wegschrijven #%{model}
+  commons:
+    noo: Nee
+    yess: Ja     

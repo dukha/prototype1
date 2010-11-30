@@ -16,13 +16,13 @@
 
   
 
-  <tr class = "whiteboard">
+  <tr class = "whiteboard" >
     <td class="whiteboardname"><%= t($LU+"whiteboard_type." +WhiteboardType.find(whiteboard.whiteboard_type_id).translation_code) %></td>
 		<td class="whiteboard"><%= whiteboard.info %></td>
 		 
     
     <td class="whiteboardlink"><%= link_to t('action.edit'), edit_whiteboard_path(whiteboard) %></td>
-    
+    <!--td><%= link_to 'Destroy', whiteboard, :confirm => 'Are you sure?', :method => :delete %></td  -->
   </tr>
   	
 <% end %>
@@ -30,4 +30,4 @@
 <%= will_paginate %>
 <br />
 
-
+<!-- <%= link_to 'New Whiteboard', new_whiteboard_path %> -->

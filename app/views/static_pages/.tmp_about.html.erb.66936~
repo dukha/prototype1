@@ -1,0 +1,9 @@
+<p class="pageheading">About <%=$application_name %></p>
+
+<p><%=$application_name + " " + t("headings.application_subheading")%> version = <%=$application_version%> was developed using </p>
+<ul>
+	<li>Ruby 1.8.7</li>
+	<li>Rails 3.0.1 </li>
+</ul>	
+	
+

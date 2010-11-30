@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128040638) do
+ActiveRecord::Schema.define(:version => 20101129000316) do
 
   create_table "application_languages", :force => true do |t|
     t.string   "iso_code"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20101128040638) do
 
   add_index "course_types", ["name"], :name => "index_course_types_on_name", :unique => true
   add_index "course_types", ["translation_code"], :name => "index_course_types_on_translation_code", :unique => true
+
+  create_table "courses", :force => true do |t|
+    t.integer  "course_type_id"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.integer  "location_id"
+    t.boolean  "old_students_only"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "languages", :force => true do |t|
     t.string   "iso_code"

@@ -30,7 +30,7 @@
 <% end %>
   <tr class = "<%= row_class %>" >
 
-    <td class="<%= cell_class %>"><%= t($LU + "course_type."+ CourseType.find_by_id(course.course_type_id).translation_code) %></td>
+    <td class="<%= cell_class %>"><%= course.course_type_id %></td>
 		 
 
     <td class="<%= cell_class %>"><%= course.begin_date %></td>
@@ -39,10 +39,10 @@
     <td class="<%= cell_class %>"><%= course.end_date %></td>
 		 
 
-    <td class="<%= cell_class %>"><%= Location.find_by_id(course.location_id).name %></td>
+    <td class="<%= cell_class %>"><%= course.location_id %></td>
 		 
 
-    <td class="<%= cell_class %>"><%= (course.old_students_only) ? t('commons.yess'): t('commons.noo') %></td> 
+    <td class="<%= cell_class %>"><%= course.old_students_only %></td>
 		 
 
     
